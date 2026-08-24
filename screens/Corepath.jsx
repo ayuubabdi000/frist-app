@@ -6,6 +6,8 @@ import {
   StyleSheet,
   Image
 } from 'react-native'
+import * as Progress from 'react-native-progress';
+
 
 import { SafeAreaView } from 'react-native-safe-area-context'
 const iconMap = {
@@ -66,6 +68,11 @@ const Corepath = () => {
 
                   {/* {here is icon   } */}
 
+
+                  {/* {here is    name} */}
+                  <View style={styles.lesson}>
+                    <Text style={styles.lessontitle}>{lesson}</Text>
+                  </View>
                   <View style={styles.icon}>
                     <Image
                       source={iconMap[icon]}
@@ -73,16 +80,16 @@ const Corepath = () => {
                       resizeMode="contain"
                     />
                   </View>
-                  {/* {here is    name} */}
-                  <View style={styles.lesson}>
-                    <Text>{lesson}</Text>
-                  </View>
 
                 </View>
                 {/* {here is progpersentage} */}
                 <View style={styles.progresper}>
 
-                  <Text>{progpersentage}</Text>
+
+
+                  
+                  <View><Progress.Bar progress={0.9} width={100} style={styles.progressbar} /></View>
+                  <Text style={styles.progtext}>{progpersentage}</Text>
                 </View>
 
               </View>
@@ -98,18 +105,24 @@ const styles = StyleSheet.create({
   container: {
     padding: 24,
     flex: 1,
-    flexDirection:'column',
+    flexDirection: 'row',
     backgroundColor: '#020F18',
   },
   cardcontainer: {
     backgroundColor: 'rgba(252, 252, 255, 0.10)',
-    marginBottom: 10,
-    paddingTop: 15,
+    marginBottom: 18,
+    paddingTop: 10,
     paddingLeft: 20,
-    height: 120,
-    borderRadius: 16
+    height: 130,
+    borderRadius: 16,
+    flexDirection: 'row',
+    gap:70,
+    
   },
   content: {
+    flexDirection: 'column',
+    width: 100,
+    
 
   },
   icon: {
@@ -119,8 +132,32 @@ const styles = StyleSheet.create({
 
   },
   iconImage: {
-    height: 100
+
+    height: 90,
+    width: 70
+
+  },
+  lessontitle: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: '400'
+  },
+  progresper: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop:90
+  },
+  progressbar:{
+    backgroundColor:'white'
+  },
+  progtext:{
+    color:'white',
+    fontSize:18,
+    position:'relitive',
+    top:-9
   }
+
+
 
 
 })
