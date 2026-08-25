@@ -42,8 +42,9 @@ const items = [
     lesson: 'Variable',
     progpersentage: '90',
     icon: 'python'
-
   },
+
+
 
 ]
 
@@ -51,7 +52,19 @@ const Corepath = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text>Hello</Text>
+        <View style={styles.head}>
+          <View style={styles.detail}>
+            <Text style={styles.headtitle}>Python fundementals</Text>
+            <Text style={styles.completedTopText}>12 of 20 topics completed</Text>
+          </View>
+          <View style={styles.topicProgress}>
+            <View><Progress.Bar progress={0.9} width={190} style={styles.progressbar} /></View>
+
+          </View>
+
+
+
+        </View>
 
         {items.map(
           ({ lesson, progpersentage, icon }, index) => (
@@ -70,9 +83,6 @@ const Corepath = () => {
 
 
                   {/* {here is    name} */}
-                  <View style={styles.lesson}>
-                    <Text style={styles.lessontitle}>{lesson}</Text>
-                  </View>
                   <View style={styles.icon}>
                     <Image
                       source={iconMap[icon]}
@@ -80,6 +90,16 @@ const Corepath = () => {
                       resizeMode="contain"
                     />
                   </View>
+                  <View style={styles.lesson}>
+                    <Text style={styles.lessontitle}>{lesson}</Text>
+                  </View>
+                  <View style={styles.progconditon}>
+                    <Text style={styles.progconditontitle}>Almost Mastered</Text>
+                  </View>
+                  <View style={styles.start}>
+                    <Text style={styles.starttitle}>start</Text>
+                  </View>
+
 
                 </View>
                 {/* {here is progpersentage} */}
@@ -87,12 +107,15 @@ const Corepath = () => {
 
 
 
-                  
+
+
                   <View><Progress.Bar progress={0.9} width={100} style={styles.progressbar} /></View>
                   <Text style={styles.progtext}>{progpersentage}</Text>
                 </View>
 
+
               </View>
+
             </TouchableOpacity>
           )
         )}
@@ -108,54 +131,127 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#020F18',
   },
+  head: {
+    height: 180,
+    borderWidth: 2,
+    marginTop: 30,
+    marginBottom: 0,
+    // paddingTop:30,
+    // paddingLeft:30
+  },
   cardcontainer: {
     backgroundColor: 'rgba(252, 252, 255, 0.10)',
     marginBottom: 18,
     paddingTop: 10,
     paddingLeft: 20,
-    height: 130,
     borderRadius: 16,
     flexDirection: 'row',
-    gap:70,
-    
+    gap: 70,
+    height: 170
+
   },
   content: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     width: 100,
-    
+    gap: 18
+
 
   },
   icon: {
-
+    height: 70,
+    marginTop: 10,
+    alignContent: 'center',
+    borderWidth: 2,
+    borderColor: '#ffffff46',
+    borderRadius: 8,
+    padding: 3,
   },
   progresper: {
 
   },
   iconImage: {
 
-    height: 90,
-    width: 70
+    height: 60,
+    width: 60,
+
+
 
   },
   lessontitle: {
     color: 'white',
     fontSize: 24,
-    fontWeight: '400'
+    fontWeight: '400',
+    marginTop: 18
   },
   progresper: {
     flexDirection: 'row',
     gap: 10,
-    marginTop:90
+    position: 'relative',
+    right: 80,
+    marginTop: 60
   },
-  progressbar:{
-    backgroundColor:'white'
+  progressbar: {
+    backgroundColor: 'white'
   },
-  progtext:{
-    color:'white',
-    fontSize:18,
-    position:'relitive',
-    top:-9
+  progtext: {
+    color: 'white',
+    fontSize: 18,
+    position: 'relitive',
+    top: -9
+  },
+  progconditon: {
+    height: 30,
+    width: 120,
+    marginTop: 120,
+    position: 'relitive',
+    right: 190
+  },
+  progconditontitle: {
+    color: '#ffffffb8',
+    alignItems: 'center'
+  },
+  start: {
+    height: 40,
+    width: 100,
+    marginTop: 105,
+    position: 'relitive',
+    right: 130,
+
+
+
+    backgroundColor: '#00b7ff46',
+    paddingLeft: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: 10,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  starttitle: {
+    color: '#ffffffb8',
+
+    fontWeight: '900',
+
+
+    fontSize: 18
+  },
+ 
+  headtitle: {
+    color:'#fff',
+    
+    fontSize:28,
+    fontWeight:'700'
+
+  },
+
+  completedTopText: {   
+    marginTop:10 ,
+    color:'#fff'
+},
+  topicProgress: {
+    marginTop:20
   }
+
 
 
 
