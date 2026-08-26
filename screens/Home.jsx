@@ -7,6 +7,8 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <View style={styles.welcomeMessage}>
+                <text>ayuub abdi</text>
+                <text>ayuub waa arfday dhutdugsiga siu kana howlaga;ala mada sha waxadcjjc</text>
                 <Text style={styles.headcolor}>Good Morning {"\n"}
                     alex</Text>
                 <Text style={styles.title}>Lets build somethinGreat</Text>

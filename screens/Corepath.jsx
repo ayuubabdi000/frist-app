@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
   headtitle: {
     color:'#fff',
     
-    fontSize:28,
+    fontSize:28, 
     fontWeight:'700'
 
   },
